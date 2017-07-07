@@ -15,7 +15,7 @@
           </li>
         @endforeach
       </ul>
-      <form class="" action="/peliculas/agregar" method="post">
+      <form class="" action="/peliculas/agregar" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="">
           <label for="">Título</label>
@@ -36,6 +36,10 @@
         <div class="">
           <label for="">Fecha de Estreno</label>
           <input type="date" name="release_date" value="{{old("release_date")}}">
+        </div>
+        <div class="">
+          <label for="">Poster</label>
+          <input type="file" name="poster">
         </div>
         <div class="">
           <label for="">Genero</label>

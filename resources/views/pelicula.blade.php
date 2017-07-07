@@ -14,6 +14,7 @@
         <li>Duración: {{$movie->length}}</li>
         <li>Genero: {{$movie->genre->name}}</li>
       </ul>
+      <img width=400 src="/storage/{{$movie->poster}}" alt="">
     </div>
   </body>
 </html>

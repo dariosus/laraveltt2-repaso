@@ -45,13 +45,24 @@ class PeliculasController extends Controller
       ];
 
       $this->validate($req, $reglas);
+
+
       $actores = $req->only("actores");
 
       $peli = \App\Movie::create($datos);
 
       foreach ($actores as $actor) {
-        $peli->actors()->attach($actor);  
+        $peli->actors()->attach($actor);
       }
+
+      $file = $req->file("poster");
+      $ext = $file->extension();
+
+
+      $path = $req->file("poster")->storeAs("posters", $peli->id . "." . $ext);
+
+      $peli->poster = $path;
+      $peli->save();
 
       return redirect('/peliculas');
     }
