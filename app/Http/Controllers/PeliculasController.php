@@ -3,14 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PeliculasController extends Controller
 {
+
+
     public function listar() {
+
+      $idioma = session("idioma");
+      \App::setLocale($idioma);
+
+      if (!Auth::check()) {
+        return redirect("/login");
+      }
+
+      $usuario = Auth::user();
+
       $movies = \App\Movie::paginate(15);
 
 
-      return view("peliculas", compact("movies"));
+      return view("peliculas", compact("movies", "usuario"));
     }
 
     public function listarPorGenero($idGenero) {

@@ -6,10 +6,19 @@
     <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
+    <h3>Idiomas</h3>
+    <ul>
+      <li>
+        <a href="/en">Inglés</a>
+      </li>
+      <li>
+        <a href="/es">Español</a>
+      </li>
+    </ul>
     <div class="container">
-      <h1>Mis películas</h1>
+      <h1>@lang("mensajes.bienvenida", ["nombre" => $usuario->name])</h1>
       <h2>
-        <a href="/peliculas/agregar">Agregar Película</a>
+        <a href="/peliculas/agregar">@lang('mensajes.agregar')</a>
       </h2>
       <ul>
         @foreach ($movies as $movie)

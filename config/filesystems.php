@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'disks' => [
+    'disks' => [  
 
         'local' => [
             'driver' => 'local',

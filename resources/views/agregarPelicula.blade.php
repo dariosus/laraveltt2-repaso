@@ -17,9 +17,9 @@
       </ul>
       <form class="" action="/peliculas/agregar" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <div class="">
+        <div class="form-group">
           <label for="">Título</label>
-          <input type="text" name="title" value="{{old("title")}}">
+          <input class="form-control" type="text" name="title" value="{{old("title")}}">
         </div>
         <div class="">
           <label for="">Rating</label>
